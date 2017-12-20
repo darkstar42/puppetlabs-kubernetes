@@ -1,6 +1,6 @@
 [Service]
 <% if @container_runtime == 'docker' -%>
-Environment="KUBELET_KUBECONFIG_ARGS=--kubeconfig=/etc/kubernetes/kubelet.conf --require-kubeconfig=true"
+Environment="KUBELET_KUBECONFIG_ARGS=--kubeconfig=/etc/kubernetes/kubelet.conf --fail-swap-on=false"
 <% end %>
 <% if @container_runtime == 'cri_containerd' -%> 
 	Environment="KUBELET_KUBECONFIG_ARGS=--kubeconfig=/etc/kubernetes/kubelet.conf --require-kubeconfig=true --container-runtime-endpoint=unix:///var/run/cri-containerd.sock --container-runtime=remote" 
